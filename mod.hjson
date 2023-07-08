@@ -2,13 +2,11 @@ displayName: "yr2 Logic Debugger"
 
 name: "yr2-logic-debugger"
 
-author: "原作者：DeltaNedas\n修改：yaddrx2"
+author: "Original author: DeltaNedas\nModified: yaddrx2\nTranslation: Angels"
 
 description: "Logic Debugger
 
-一个逻辑辅助工具
-
-原作DeltaNedas/ldb
+Original: DeltaNedas/ldb
 
 yaddrx2将其升级到了137，仅供学习交流使用
 
