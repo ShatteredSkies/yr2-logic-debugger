@@ -11,22 +11,15 @@ global.override.class(LogicBlock, {
 			t.button(Icon.settings, Styles.cleari, () => {
 				this.yr2Setting.table.yr2table = !this.yr2Setting.table.yr2table;
 				this.yr2TableBuild();
-			}).size(40);
-			t.button(Icon.copy, Styles.cleari, () => {
-				Core.app.setClipboardText(this.code);
-			}).size(40);
-		});
-		const settingTable = new Table(null, t => {
+			}).size(40).tooltip('Yr2/ldb');
 			for (let i = 1; i < table.cells.size; i++) {
-				t.add(table.cells.get(i).get());
+				t.add(table.cells.get(i).get()).minWidth(40).height(40);
 				t.row();
 			}
 		});
 		table.clear();
 		table.top().background(null);
 		table.add(editTable);
-		table.row();
-		table.add(settingTable);
 		table.row();
 		table.add(this.yr2Table);
 	},
@@ -46,7 +39,7 @@ global.override.class(LogicBlock, {
 			break: false,
 		},
 		vars: {
-			link: false,
+			link: true,
 			mono: false
 		},
 		editor: {
@@ -239,16 +232,20 @@ global.override.class(LogicBlock, {
 								const yr2Var = this.yr2Lists.vars.mono;
 								if (yr2Var !== null && this.yr2Setting.vars.mono)
 									if (yr2Var.objval instanceof Building) {
-										Drawf.select(yr2Var.objval.x, yr2Var.objval.y, yr2Var.objval.block.size * 4, Color.valueOf('ff0000'));
-										Drawf.line(Color.valueOf('ff0000'), this.x, this.y, yr2Var.objval.x, yr2Var.objval.y);
-										Fonts.outline.setColor(Color.valueOf('ff0000'));
+										Drawf.select(yr2Var.objval.x, yr2Var.objval.y, yr2Var.objval.block.size * 4, Color.valueOf('ff2244'));
+										Draw.color(Color.valueOf('ff88ff90'));
+										Lines.stroke(1.4);
+										Lines.line(this.x, this.y, yr2Var.objval.x, yr2Var.objval.y);
+										Fonts.outline.setColor(Color.valueOf('ff2244'));
 										Fonts.outline.getData().setScale(0.4);
 										Fonts.outline.draw(yr2Var.name, yr2Var.objval.x, yr2Var.objval.y - yr2Var.objval.block.size * 4 - 4, Align.center);
 										Fonts.outline.getData().setScale(1);
 									} else if (yr2Var.objval instanceof Unit) {
-										Drawf.select(yr2Var.objval.x, yr2Var.objval.y, yr2Var.objval.type.hitSize, Color.valueOf('ff0000'));
-										Drawf.line(Color.valueOf('ff0000'), this.x, this.y, yr2Var.objval.x, yr2Var.objval.y);
-										Fonts.outline.setColor(Color.valueOf('ff0000'));
+										Drawf.select(yr2Var.objval.x, yr2Var.objval.y, yr2Var.objval.type.hitSize, Color.valueOf('88ffff'));
+										Draw.color(Color.valueOf('88ffff90'));
+										Lines.stroke(1.4);
+										Lines.line(this.x, this.y, yr2Var.objval.x, yr2Var.objval.y);
+										Fonts.outline.setColor(Color.valueOf('88ffff'));
 										Fonts.outline.getData().setScale(0.4);
 										Fonts.outline.draw(yr2Var.name, yr2Var.objval.x, yr2Var.objval.y - yr2Var.objval.type.hitSize - 4, Align.center);
 										Fonts.outline.getData().setScale(1);
@@ -373,11 +370,15 @@ global.override.class(LogicBlock, {
 								}).top().minHeight(35).get().update(() => {
 									if (this.yr2Setting.vars.link || Time.time < drawTime + 32)
 										if (yr2Var.objval instanceof Building) {
-											Drawf.select(yr2Var.objval.x, yr2Var.objval.y, yr2Var.objval.block.size * 4, Color.valueOf('ff0000'));
-											Drawf.line(Color.valueOf('ff0000'), this.x, this.y, yr2Var.objval.x, yr2Var.objval.y);
+											Drawf.select(yr2Var.objval.x, yr2Var.objval.y, yr2Var.objval.block.size * 4, Color.valueOf('ff2244'));
+											Draw.color(Color.valueOf('ff88ff90'));
+											Lines.stroke(1.4);
+											Lines.line(this.x, this.y, yr2Var.objval.x, yr2Var.objval.y);
 										} else if (yr2Var.objval instanceof Unit) {
-											Drawf.select(yr2Var.objval.x, yr2Var.objval.y, yr2Var.objval.type.hitSize, Color.valueOf('ff0000'));
-											Drawf.line(Color.valueOf('ff0000'), this.x, this.y, yr2Var.objval.x, yr2Var.objval.y);
+											Drawf.select(yr2Var.objval.x, yr2Var.objval.y, yr2Var.objval.type.hitSize, Color.valueOf('88ffff'));
+											Draw.color(Color.valueOf('88ffff90'));
+											Lines.stroke(1.4);
+											Lines.line(this.x, this.y, yr2Var.objval.x, yr2Var.objval.y);
 										}
 								});;
 								table.row();
@@ -417,16 +418,20 @@ global.override.class(LogicBlock, {
 									}).top().minHeight(35).update(() => {
 										if (this.yr2Setting.vars.link || Time.time < drawTime + 32)
 											if (yr2Var.objval instanceof Building) {
-												Drawf.select(yr2Var.objval.x, yr2Var.objval.y, yr2Var.objval.block.size * 4, Color.valueOf('ff0000'));
-												Drawf.line(Color.valueOf('ff0000'), this.x, this.y, yr2Var.objval.x, yr2Var.objval.y);
-												Fonts.outline.setColor(Color.valueOf('ff0000'));
+												Drawf.select(yr2Var.objval.x, yr2Var.objval.y, yr2Var.objval.block.size * 4, Color.valueOf('ff88ff'));
+												Draw.color(Color.valueOf('ff88ff90'));
+												Lines.stroke(1.4);
+												Lines.line(this.x, this.y, yr2Var.objval.x, yr2Var.objval.y);
+												Fonts.outline.setColor(Color.valueOf('ff2244'));
 												Fonts.outline.getData().setScale(0.4);
 												Fonts.outline.draw(yr2Var.name, yr2Var.objval.x, yr2Var.objval.y - yr2Var.objval.block.size * 4 - 4, Align.center);
 												Fonts.outline.getData().setScale(1);
 											} else if (yr2Var.objval instanceof Unit) {
-												Drawf.select(yr2Var.objval.x, yr2Var.objval.y, yr2Var.objval.type.hitSize, Color.valueOf('ff0000'));
-												Drawf.line(Color.valueOf('ff0000'), this.x, this.y, yr2Var.objval.x, yr2Var.objval.y);
-												Fonts.outline.setColor(Color.valueOf('ff0000'));
+												Drawf.select(yr2Var.objval.x, yr2Var.objval.y, yr2Var.objval.type.hitSize, Color.valueOf('88ffff'));
+												Draw.color(Color.valueOf('88ffff90'));
+												Lines.stroke(1.4);
+												Lines.line(this.x, this.y, yr2Var.objval.x, yr2Var.objval.y);
+												Fonts.outline.setColor(Color.valueOf('88ffff'));
 												Fonts.outline.getData().setScale(0.4);
 												Fonts.outline.draw(yr2Var.name, yr2Var.objval.x, yr2Var.objval.y - yr2Var.objval.type.hitSize - 4, Align.center);
 												Fonts.outline.getData().setScale(1);
@@ -489,8 +494,10 @@ global.override.class(LogicBlock, {
 									});
 								}).top().minHeight(35).get().update(() => {
 									if (this.yr2Setting.vars.link || Time.time < drawTime + 32) {
-										Drawf.select(yr2Var.objval.x, yr2Var.objval.y, yr2Var.objval.block.size * 4, Color.valueOf('ff0000'));
-										Drawf.line(Color.valueOf('ff0000'), this.x, this.y, yr2Var.objval.x, yr2Var.objval.y);
+										Drawf.select(yr2Var.objval.x, yr2Var.objval.y, yr2Var.objval.block.size * 4, Color.valueOf('ff2244'));
+										Draw.color(Color.valueOf('ff224490'));
+										Lines.stroke(1.4);
+										Lines.line(this.x, this.y, yr2Var.objval.x, yr2Var.objval.y);
 									}
 								});;
 								p.row();
@@ -549,6 +556,9 @@ global.override.class(LogicBlock, {
 								this.yr2Setting.editor.add = true;
 								this.yr2TableBuild();
 							}).size(40).tooltip('Insert');
+							ttt.button(Icon.copy, Styles.cleari, () => {
+								Core.app.setClipboardText(this.code);
+							}).size(40).tooltip('Copy code');
 							ttt.button(Icon.download, Styles.cleari, () => {
 								if (this.yr2Setting.editor.replace) {
 									this.updateCode(Core.app.getClipboardText().replace(/\r/g, ''));

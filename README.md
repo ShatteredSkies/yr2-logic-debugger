@@ -1,5 +1,9 @@
 # yr2-logic-debugger
 
+yr2-logic-debugger translated to English by Angels
+
+Original[DeltaNedas/ldb](https://github.com/deltanedas/ldb)
+
 一个逻辑辅助工具
 
 原作[DeltaNedas/ldb](https://github.com/deltanedas/ldb)
