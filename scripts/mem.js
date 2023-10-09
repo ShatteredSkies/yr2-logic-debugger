@@ -8,7 +8,7 @@ global.override.class(MemoryBlock, {
     },
 
     yr2Setting: {
-		yr2table: false,
+		yr2table: true,
         edit: false,
         bin: false,
 	},

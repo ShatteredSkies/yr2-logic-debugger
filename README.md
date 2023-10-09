@@ -1,6 +1,6 @@
 # yr2-logic-debugger
 
-yr2-logic-debugger translated to English by Angels
+English version of the logic debugger by yaddrx2
 
 Original[DeltaNedas/ldb](https://github.com/deltanedas/ldb)
 
